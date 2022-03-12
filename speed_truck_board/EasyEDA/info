@@ -1,0 +1,119 @@
+{
+  "uuid": "401a082d97ed1186341ae5f3d1eccedc",
+  "path": "Offline/speed_truck",
+  "name": "speed_truck",
+  "content": "board for speed truck (to minimize size of Adafruit Feather Huzzah ESP8266 + motor driver)",
+  "created_at": "2022-02-19 14:45:48",
+  "updated_at": "2022-03-01 11:48:03",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "59d0d6e9cbfbcd212f0adf10e981dfe5",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "dd49a9c16a714b42874b20ec8cffb53b": 1,
+        "025c54c619434910a170d5f1dff28ee8": 1,
+        "c46e808a6a89401c91ac4da784d5abd3": 2,
+        "fc5c97b587b3414e94adca6077ed6eb5": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "M02JST-PTH-VERT",
+          1,
+          "JST-2-PTH-VERT",
+          "JP1",
+          {
+            "BOM_Manufacturer Part": "",
+            "puuid": "6b9105c39ef6477fafd4953b6849bbea",
+            "uuid": "fc5c97b587b3414e94adca6077ed6eb5"
+          }
+        ],
+        [
+          "Pad through hole 0.5mm hole 1mm pad",
+          2,
+          "PAD THROUGH HOLE 0.5MM HOLE 1MM PAD",
+          "M1,M2",
+          {
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "puuid": "a32f4c2528ad4084b6dbc8fb83ed5f06",
+            "uuid": "c46e808a6a89401c91ac4da784d5abd3"
+          }
+        ],
+        [
+          "Adafruit Huzzah ESP8266 - K5MAP",
+          1,
+          "ADAFRUIT HUZZAH ESP8266 - K5MAP",
+          "U1",
+          {
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "puuid": "282df01a0e874e9aa72942d5dfebd16a",
+            "uuid": "025c54c619434910a170d5f1dff28ee8"
+          }
+        ],
+        [
+          "POLOLU DRV8838 SINGLE BRUSHED DC MOTOR DRIVER CARRIER",
+          1,
+          "POLOLU DRV8838 SINGLE BRUSHED DC MOTOR DRIVER CARRIER",
+          "U2",
+          {
+            "BOM_Manufacturer": "Pololu",
+            "BOM_Manufacturer Part": "https://www.pololu.com/product/2990",
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "puuid": "261c27ad228e4af9aad107da2a1eef14",
+            "uuid": "dd49a9c16a714b42874b20ec8cffb53b"
+          }
+        ]
+      ],
+      "updateTime": 1646131307,
+      "createTime": 1645278349,
+      "histories": [],
+      "created_at": "2022-02-19 14:45:49",
+      "updated_at": "2022-03-01 11:41:47"
+    },
+    {
+      "uuid": "50fe85e5c4ecdf2f3a411d2b8fdca55e",
+      "puuid": "401a082d97ed1186341ae5f3d1eccedc",
+      "title": "PCB_speed_truck",
+      "filename": "PCB_speed_truck.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "6b9105c39ef6477fafd4953b6849bbea": 1,
+        "282df01a0e874e9aa72942d5dfebd16a": 1,
+        "a32f4c2528ad4084b6dbc8fb83ed5f06": 2,
+        "261c27ad228e4af9aad107da2a1eef14": 1
+      },
+      "BOM": [],
+      "updateTime": 1646131683,
+      "createTime": 1645281519,
+      "histories": [],
+      "created_at": "2022-02-19 15:38:39",
+      "updated_at": "2022-03-01 11:48:03"
+    }
+  ],
+  "sort": [],
+  "title": "speed_truck",
+  "foldername": "speed_truck",
+  "schfilename": "speed_truck.json",
+  "schfilemtime": 1646131307913
+}
