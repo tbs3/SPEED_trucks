@@ -68,7 +68,14 @@ UDP.parsePacket();
 ## Setting up the Raspberry Pi (AP Mode) ##
 This step is a bit tricky as config may not work at the first attempt. Here's some guides to help make it work.
 
-_need to complete here_
+<details><summary>Links</summary>
+https://thepi.io/how-to-use-your-raspberry-pi-as-a-wireless-access-point/ <br/>
+https://raspberrypi-guide.github.io/networking/create-wireless-access-point#configure-the-access-point-host-software <br/>
+https://www.raspberryconnect.com/projects/65-raspberrypi-hotspot-accesspoints/168-raspberry-pi-hotspot-access-point-dhcpcd-method
+</details>
+
+_Incomplete guide below_
+
 First, we need to install hostapd and dnsmasq to configure the Pi 
 ```
 sudo apt-get install hostapd dnsmasq
@@ -87,14 +94,45 @@ sudo nano /etc/dhcpcd.conf
 
 Go to the end of the file and add/edit to something like this : 
 ```
----
+interface wlan0
+    static ip_address=192.168.0.10/24
 ```
-
-<details><summary>Links</summary>
-https://thepi.io/how-to-use-your-raspberry-pi-as-a-wireless-access-point/ <br/>
-https://raspberrypi-guide.github.io/networking/create-wireless-access-point#configure-the-access-point-host-software <br/>
-https://www.raspberryconnect.com/projects/65-raspberrypi-hotspot-accesspoints/168-raspberry-pi-hotspot-access-point-dhcpcd-method
-</details>
+Now, save the default config of dnsmasq and create a new config file 
+```
+sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
+sudo nano /etc/dnsmasq.conf
+```
+Add these lines to the new file and save. You can change the range of IP addresses but here's how I configured it.
+```
+interface=wlan0
+  dhcp-range=192.168.0.11,192.168.0.30,255.255.255.0,24h
+```
+Now, to configure the access point, create and edit this file : 
+```
+sudo nano /etc/hostapd/hostapd.conf
+```
+Add these lines and replace NETWORK and PASSWORD with whatever you want :
+```
+interface=wlan0
+ssid=NETWORK
+wpa_passphrase=PASSWORD
+hw_mode=g
+channel=7 
+auth_algs=1
+wpa=2
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+```
+Now, the configuration is nearly finished. We need to edit hostapd configuration to show the system where to find the config file 
+```
+sudo nano /etc/default/hostapd
+```
+In this file, scroll down to the line that says #DAEMON_CONF=””  and delete the # . Put the path to our config file in the quotes
+```
+DAEMON_CONF="/etc/hostapd/hostapd.conf"
+```
+Now, reboot and your access point should start. If not, check the config files and reboot again.
 
 ## Controlling the truck(s) (Python3) ##
 The idea is to send a character through a UDP packet sent by the raspberry pi.
